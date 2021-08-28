@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static%}
+       <link rel="icon" href="{% static 'FB_IMG_1596288436129.ico'%}">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <title>{% block title%} {% endblock %}</title>
+     <style>
+     body {
+  background-image: url({% static 'FB_IMG_1596288436129.jpg' %});
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+       {% block css %}  {% endblock %}
+  </style>
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" href="/"><img src="{% static 'FB_IMG_1596288436129.jpg'%}" width=50px></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="btn btn-outline-success  my-5 my-sm-0 mr-4" style="background-color: #15DAD7;" href="/shop">Home <span class="sr-only">(current)</span></a>
+       </li>
+      <li class="nav-item">
+        <a class="btn btn-outline-success my-5 my-sm-0 mr-4" style="background-color: #15DAD7;" href="/shop/about">About Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="btn btn-outline-success  my-5 my-sm-0 mr-4" style="background-color: #15DAD7;" href="/shop/tracker">Tracker</a>
+      </li>
+         <li class="nav-item">
+        <a class="btn btn-outline-success  my-5 my-sm-0 mr-4" style="background-color: #15DAD7;" href="/shop/tracker">Tracker</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="btn btn-outline-success my-5 my-sm-0 mr-4" style="background-color: #15DAD7;" href="/shop/contact">Contact Us(for COD also)</a>
+      </li>
+    </ul>
+      <div class="ml-auto form-inline">
+    <form method='get'  action='/shop/search' class="form-inline my-2 my-lg-0">
+
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Serach"
+      name="search" id="search">
+            <button class= "btn btn-outline-success  my-5 my-sm-0 mr-4" style="background-color: #15DAD7;"  method="get"> serach
+            </button>
+ </form>
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome  {{ request.user}}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="/logout">Logout</a>
+                  </div>
+              </div>
+          </li>
+      </ul>
+      {% else%}
+
+      <button type="button" class="btn btn-outline-success mr-2" style="background-color: #15DAD7;" data-toggle="modal" data-target="#signupModal">
+Signup
+      </button>
+      <button type="button" class="btn btn-outline-success mr-2" style="background-color: #15DAD7;" data-toggle="modal" data-target="#loginModal">
+Login
+      </button>
+
+      {% endif %}
+      </div>
+
+
+
+<button type="button" class="btn btn mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom"
+       data-html="true" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+<img src="{% static 'shop/cart.png'%}" width=30px>(<span id="cart">0</span>)
+</button>
+  </div>
+
+    <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModal">SignUp here</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="signup/" method='post'>
+            {% csrf_token %}
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email"  placeholder="name@example.com">
+  </div>
+          <div class="form-group">
+            <label for="Username">Username(lowercase & alphanumaeric)</label>
+            <input type="text" class="form-control" id="Username"  name="Username"  placeholder="Enter Your Username" required>
+          </div>
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" class="form-control" id="fname" name="fname"  placeholder="Enter Your  First Name"required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last name</label>
+            <input type="text" class="form-control" id="lname" name="lname"  placeholder="Enter Your Last Name" required>
+          </div>
+           <div class="form-group">
+            <label for="pass1">Password</label>
+            <input type="text" class="form-control" id="pass1" name="pass1"  placeholder="Create Your Password" required>
+          </div>
+           <div class="form-group">
+            <label for="pass2">Comfirm Password</label>
+            <input type="text" class="form-control" id="pass2" name="pass2"  placeholder="Re Enter your password" required>
+          </div>
+            <button type="submit" class="btn btn"  style="background-color: #15DAD7;">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModal">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+   <form action="login/" method='post'>
+        {% csrf_token %}
+ <div class="form-group">
+     <label for="loginusername">Username</label>
+     <input type="text" class="form-control" id="loginusername"  name="loginusername"  placeholder="Enter Your Username" required>
+     we wont share your username
+ </div>
+  <div class="form-group">
+    <label for="pass">Password</label>
+    <input type="password" class="form-control" id="loginpassword" name="loginpassword" required>
+  </div>
+       <div class="input-group mb3">
+           <div class="g-recaptcha" data-sitekey="6LdYlcUZAAAAAJM0VbtGBl5N47uHUweIEiflaf9-"></div>
+       </div>
+  <button type="submit" class="btn btn" style="background-color: #15DAD7;">Submit</button>
+</form>
+
+    </nav>
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+{% endfor %}
+
+  {% block body %} {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    {% block js %} {% endblock %}
+  </body>
+</html>

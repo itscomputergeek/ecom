@@ -1,0 +1,258 @@
+{% extends 'shop/basic.html' %}
+{% block title%}sakushalherbal{% endblock %}
+{% load static%}
+
+ {% block css %}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+.fa-dribbble {
+  background: #ea4c89;
+  color: white;
+}
+
+.fa-vimeo {
+  background: #45bbff;
+  color: white;
+}
+
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+
+.fa-vine {
+  background: #00b489;
+  color: white;
+}
+
+.fa-foursquare {
+  background: #45bbff;
+  color: white;
+}
+
+.fa-stumbleupon {
+  background: #eb4924;
+  color: white;
+}
+
+.fa-flickr {
+  background: #f40083;
+  color: white;
+}
+
+.fa-yahoo {
+  background: #430297;
+  color: white;
+}
+
+.fa-soundcloud {
+  background: #ff5500;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
+.fa-rss {
+  background: #ff6600;
+  color: white;
+}
+@import @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
+p {
+  border-right: solid 3px rgba(0,255,0,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 28px;
+  color: #15DAD7;
+}
+
+/* Animation */
+p {
+  animation: animated-text 4s steps(29) 1s 1 normal both,
+             animated-cursor 600ms steps(29) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 600px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+div.container-2{
+  width:800px;
+  margin: auto;
+  object-fit: cover;
+  height:100px;
+}
+div.container {
+  width:800px;
+  margin: auto;
+  object-fit: cover;
+  border: 5px solid #3D7878;
+  height:100px;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+h1 {
+  font-family: sans-serif;
+  color: white;
+  text-shadow:
+    1px 1px 8px black,
+    .5em -.5em 0 gold,
+    1em .4em 0 green,
+    1.5em .4em 10vw orange,
+    0 0 10vw gold;
+  font-size: -10vw;
+font-style:italic;
+  }
+ {% endblock %}
+ {% block body %}
+   <div class="jumbotron" style="background-image: url({% static 'DSC_0173.jpg' %}); background-repeat: no-repeat; background-size: cover;  background-size: 100% 80%; height: 900px;" >
+    <div class="text-center" style="margin-top:300px;">
+    <a href="/shop" class="btn btn-success">
+          SHOP NOW
+        </a>
+
+
+        <p>Welcome to Sakushal Herbal Enterprises!</p>
+
+</div>
+
+
+   </div>
+<div class="container-2">
+  <h1> Take Care Of Your Body</h1>
+</div>
+<div class="container">
+<div class="row">
+  <div class="column">
+    <img src="{% static 'her1.png' %}" style="width:30%">
+  </div>
+  <div class="column">
+    <img src="{% static 'her2.png' %}"  style="width:30%">
+  </div>
+  <div class="column">
+    <img src="{% static 'her3.png' %}"  style="width:30%">
+  </div>
+</div>
+</div>
+
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https:// sakushalherbal.com/"> sakushalherbal.com</a>
+      <br>
+      <br>
+      <br>
+      <a href="https://www.facebook.com/Sakushal-Herbal-Enterprises-2231440003778024" class="fa fa-facebook"></a>
+<a href="https://twitter.com/Sakushal_herbal?s=09" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+
+<a href="https://www.instagram.com/sakushal_herbals/" class="fa fa-instagram"></a>
+
+
+  </div>
+    <div class="footer-copyright text-center py-3">WEB Design by Dheeraj kumar
+        <br>
+        Email-Jayiker5@gmail.com
+      <br>
+      <br>
+      <br>
+    </div>
+
+  <!-- Copyright -->
+  <br>
+  <br>
+
+
+</footer>
+<!-- Footer -->
+{% endblock %}
